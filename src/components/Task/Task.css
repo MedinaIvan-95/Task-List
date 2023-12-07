@@ -1,0 +1,46 @@
+.new_task {
+    width: 450px;
+    height: 50px;
+    margin: 20px 0 20px;
+    padding: 10px 0px 10px 50px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 2px 5px 5px 2px rgb(87, 87, 87) ;
+    position: relative;
+}
+
+.cancel {
+    position: absolute;
+    top:-10px;
+    right: 0px;
+    width:25px;
+    height: 25px;
+    color: rgb(41, 41, 41);
+    cursor: pointer;
+}
+
+.complete {
+    position: absolute;
+    top:15px;
+    left: 15px;
+    color: green;
+    cursor: pointer;
+}
+
+.incomplete {
+    position: absolute;
+    top:15px;
+    left: 15px;
+    color: red;
+    cursor: pointer;
+}
+
+.active {
+    display:block;
+}
+
+.inactive {
+    display:none;
+}
+

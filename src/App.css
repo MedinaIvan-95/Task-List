@@ -1,38 +1,65 @@
-.App {
-  text-align: center;
+*{
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-family: 'Poppins', sans-serif;
+  background: rgb(101,58,180);
+  background: linear-gradient(270deg, rgba(101,58,180,1) 0%, rgba(29,210,253,1) 40%, rgba(238,255,25,1) 100%);  
+  color: rgb(41, 41, 41);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #233553;
-  min-height: 100vh;
+.main_container {
+  height: 450px;
+  margin-top: 150px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: space-around;
+}
+
+.card_new_task {
+  margin-top: 70px;
+  background-color:rgba(255, 255, 255, 0.568);
+  width:500px;
+  height: 300px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow:2px 5px 10px 2px rgba(122,122,122,1);
+  box-sizing: border-box;
+  padding: 80px 50px;
+}
+
+h1 {
+  margin: 10px 0 10px;
+}
+
+h2 {
+  margin: 10px 0 10px;
+  font-weight: 400;
+  font-size: 24px;
+}
+
+.task {
+  width: 500px;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-wrap: wrap;
+  border-radius: 10px;
+  overflow-y: scroll;
+  background-color:rgba(255, 255, 255, 0.568);
+  box-shadow: 2px 5px 5px 2px rgb(87, 87, 87) ;
 }
 
-.App-link {
-  color: #97ca3f;
+.task::-webkit-scrollbar {
+  width: 5px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.task::-webkit-scrollbar-thumb {
+  width: 10px;
+  border-radius: 10px;
+  background-color: rgba(128, 128, 128, 0.719);
+}
+
+.task::-webkit-scrollbar-thumb:active {
+  background-color: rgb(128, 128, 128);
 }
