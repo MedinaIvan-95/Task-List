@@ -1,29 +1,31 @@
 import "./Task.css";
 import React from 'react';
-import { FaCheckCircle } from "react-icons/fa";
+/* import { FaCheckCircle } from "react-icons/fa"; */
 import { MdCancel } from "react-icons/md";
-import { FaMinusCircle } from "react-icons/fa";
+/* import { FaMinusCircle } from "react-icons/fa"; */
+/* import { v4 as uuidv4 } from 'uuid'; */
+import { TbPointFilled } from "react-icons/tb";
 
 const Task = ({task,id,complete,arrTask,setArrTask}) => {
     return <>
         <div className="new_task">
-            <MdCancel className="cancel" onClick={() =>{
+            <MdCancel className="cancel"  onClick={() =>{
                 setArrTask(arrTask.filter((element) => element.id !== id))
             }}    
             />
-            <FaCheckCircle className="complete inactive" onClick={(e) => {
-                e.target.classList.toggle("active");
-                e.target.classList.add("inactive");
+
+            <TbPointFilled className={ complete === false ? "incomplete" : "complete"} onClick={() => {
+            
+                const completeIndex = arrTask.findIndex( element => element.id === id);
+                const switchCompleteTask = arrTask[completeIndex]
                 
-                console.log(e.target.classList)
-            }}/>
-            <FaMinusCircle className={`incomplete active`} onClick={(e) =>{
-                
-                    e.target.classList.toggle("active");
-                    e.target.classList.add("inactive");
-                
-                console.log(e.target.classList)
-            }}/>
+                if(switchCompleteTask.complete === false){
+                    setArrTask([...arrTask], switchCompleteTask.complete = true);
+                }else{
+                    setArrTask([...arrTask], switchCompleteTask.complete = false);
+                }
+            }} />
+
             <p>{task}</p>
         </div>
     </>

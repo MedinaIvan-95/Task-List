@@ -1,3 +1,33 @@
 .search_container {
     margin: 10px 0 10px;
+    display: flex;
+}
+
+.search-icon-container {
+    box-sizing: border-box;
+    padding: 5px;
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(325deg,rgba(29,210,253,1) 0%, rgba(238,255,25,1) 100%);  
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow:2px 5px 5px 0px rgba(122,122,122,1);
+    transform: scale(1);
+    transition: 0.5s;
+}
+
+.search-icon-container:hover {
+    transform: scale(1.2);
+    transition: 0.5s;
+}
+
+.search-input-hidden {
+    width:0px;
+    transition: 0.3s linear;
+}
+
+.search-input-visible {
+    width:320px;
+    transition: 0.3s linear;
 }

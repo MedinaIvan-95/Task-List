@@ -8,14 +8,20 @@ import { v4 as uuidv4 } from 'uuid';
 function App() {
   const [newTask, setNewTask] = useState({});
   const [arrTask, setArrTask] = useState([]);
+  const [searchTask, setSearchTask] = useState("");
+  const [inputSearchAnim,setInputSearchAnim] = useState("search-input-hidden");
 
-  return (
-    <>
+  const taskComplete = arrTask.filter( arr => arr.complete === true).length;
+  const taskLength = arrTask.length;
+
+  const filterTask = arrTask.filter( arr => arr.title.toLocaleLowerCase().includes(searchTask));
+
+  return <>
         <div className='main_container'>
 
           <div className='card_new_task'>
-            <h1>Lista de Tareas</h1>
-            <h2>5 Tareas completadas de 15</h2>
+            <h1>{taskComplete == taskLength && taskComplete!== 0 ? "Felicidades Has Completado Todas las Tareas!!!": "Lista de Tareas"}</h1>
+            <h2>{taskComplete} Tareas completadas de {taskLength}</h2>
             <div className='addTask'>
               <AddTask 
               newTask={newTask}
@@ -23,19 +29,16 @@ function App() {
               arrTask={arrTask}
               setArrTask={setArrTask}
               />
+              
+              <Search setSearchTask={setSearchTask} inputSearchAnim={inputSearchAnim} setInputSearchAnim={setInputSearchAnim}/>
+              {filterTask.map((task) => {
+                return <Task key={uuidv4()} task={task.title} id={task.id} complete={task.complete} arrTask={arrTask} setArrTask={setArrTask}  setNewTask={setNewTask}/>
+              })}
             </div>
-          </div>
-          
-          <div className='task'>
-            <Search/>
-            {arrTask.map((task) => {
-              return <Task key={uuidv4()} task={task.title} id={task.id} arrTask={arrTask} setArrTask={setArrTask} complete={task.complete}/>
-            })}
           </div>
         </div>
         
     </>
-  );
 }
 
 export default App;
