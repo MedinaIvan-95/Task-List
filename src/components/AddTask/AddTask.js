@@ -14,6 +14,7 @@ const AddTask = ({newTask,setNewTask,arrTask,setArrTask}) => {
                     });
                 }}/>
                 <button onClick={() => {
+                    // Al usar [...arrTask, newTask] estamos actualizando el arrTask y añadiendo un nuevo objeto al array
                         setArrTask([...arrTask, newTask]);
                 }}>Agregar</button>
         </div>

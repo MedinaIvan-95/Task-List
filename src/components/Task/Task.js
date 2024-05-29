@@ -20,6 +20,7 @@ const Task = ({task,id,complete,arrTask,setArrTask}) => {
                 const switchCompleteTask = arrTask[completeIndex]
                 
                 if(switchCompleteTask.complete === false){
+                    //La siguiente linea se usa para modificar un valor de una propiedad del objeto dentro de un array 
                     setArrTask([...arrTask], switchCompleteTask.complete = true);
                 }else{
                     setArrTask([...arrTask], switchCompleteTask.complete = false);

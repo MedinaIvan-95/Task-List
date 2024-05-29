@@ -4,10 +4,12 @@ import AddTask from './components/AddTask/AddTask';
 import Search from './components/Search/Search';
 import React , { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import useLocalStorage from './customHooks/cusotmHooks';
 
 function App() {
+  
+  const {arrTask, setArrTask} = useLocalStorage();
   const [newTask, setNewTask] = useState({});
-  const [arrTask, setArrTask] = useState([]);
   const [searchTask, setSearchTask] = useState("");
   const [inputSearchAnim,setInputSearchAnim] = useState("search-input-hidden");
 
@@ -20,7 +22,7 @@ function App() {
         <div className='main_container'>
 
           <div className='card_new_task'>
-            <h1>{taskComplete == taskLength && taskComplete!== 0 ? "Felicidades Has Completado Todas las Tareas!!!": "Lista de Tareas"}</h1>
+            <h1>{taskComplete === taskLength && taskComplete!== 0 ? "Felicidades Has Completado Todas las Tareas!!!": "Lista de Tareas"}</h1>
             <h2>{taskComplete} Tareas completadas de {taskLength}</h2>
             <div className='addTask'>
               <AddTask 
